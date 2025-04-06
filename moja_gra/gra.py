@@ -20,6 +20,7 @@ KATALOG_ZAPISOW = "zapisy"
 MAX_ZAPISOW = 5
 
 url = "https://www.tiktok.com/@handball._enjoyer"
+url_insta = 'https://www.instagram.com/pagurski_jakis.nn/'
 
 poruszanie_do_prawej = [pygame.image.load(f"moja_gra\\postac_od_prawej\\ludzik_prawa_{i}.png") for i in range(1, 7)]
 poruszanie_do_lewej = [pygame.image.load(f"moja_gra\\postac_od_lewej\\ludzik_lewa_{i}.png") for i in range(1, 7)]
@@ -345,6 +346,9 @@ def menu_startowe():
     ikonka_tiktoka = pygame.image.load('moja_gra\\inne_tekstury\\ikonka_tiktoka.png')
     ikonka_tiktoka = pygame.transform.scale(ikonka_tiktoka, (100,100))
     przycisk_tiktoka = ikonka_tiktoka.get_rect(topleft=(10,650))
+    ikonka_insta = pygame.image.load('moja_gra\\inne_tekstury\\insta_logo.png')
+    ikonka_insta = pygame.transform.scale(ikonka_insta, (100,100))
+    przycisk_insta= ikonka_insta.get_rect(topleft=(120,650))
     
 
     while True:
@@ -352,6 +356,7 @@ def menu_startowe():
         okno.blit(przycisk_nowa_gra, (250,400))
         okno.blit(przycisk_wczytaj, (250, 550))
         okno.blit(ikonka_tiktoka, (10, 650))
+        okno.blit(ikonka_insta, (120, 650))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -364,6 +369,8 @@ def menu_startowe():
                     return "wczytaj"
                 elif przycisk_tiktoka.collidepoint(event.pos):
                     webbrowser.open(url)
+                elif przycisk_insta.collidepoint(event.pos):
+                    webbrowser.open(url_insta)
         
         pygame.display.flip()
 
